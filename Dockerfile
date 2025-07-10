@@ -4,6 +4,7 @@ ENV KEYCLOAK_ADMIN=admin
 ENV KEYCLOAK_ADMIN_PASSWORD=admin
 
 RUN /opt/keycloak/bin/kc.sh build
+RUN /opt/keycloak/bin/kc.sh create admin --user $KEYCLOAK_ADMIN --password $KEYCLOAK_ADMIN_PASSWORD
 
 EXPOSE 8080
 
