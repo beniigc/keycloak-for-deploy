@@ -1,22 +1,35 @@
-services:
-  - type: web
-    name: keycloak
-    env: docker
-    plan: free
-    dockerfilePath: ./Dockerfile
-    autoDeploy: false
-    envVars:
-      - key: PORT
-        value: 8080
-      - key: KEYCLOAK_ADMIN
-        value: admin
-      - key: KEYCLOAK_ADMIN_PASSWORD
-        value: admin
-      - key: KC_HOSTNAME
-        value: keycloak-for-deploy-1.onrender.com
-      - key: KC_PROXY
-        value: edge
-      - key: KC_CACHE
-        value: local
-      - key: QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY
-        value: true
+type: web
+  name: keycloak
+  env: docker
+  plan: starter
+  region: oregon
+  dockerfilePath: ./Dockerfile
+  healthCheckPath: /realms/master/.well-known/openid-configuration
+  autoDeploy: false
+  envVars:
+  key: PORT
+    value: "8080"
+  key: KEYCLOAK_ADMIN
+    value: admin
+  key: KEYCLOAK_ADMIN_PASSWORD
+  value: admin
+  key: KC_HOSTNAME
+  value: keycloak-for-deploy-1.onrender.com
+  key: KC_PROXY
+  value: edge
+  key: KC_CACHE
+  value: local
+  key: QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY
+  value: "true"
+  key: KC_DB
+  value: postgres
+  key: KC_DB_URL
+  value: jdbc:postgresql://[nombre-del-servicio-postgres]:5432/keycloak
+  key: KC_DB_USERNAME
+  value: keycloak_user
+  key: KC_DB_PASSWORD
+  value: tu_password_seguro
+  key: JGROUPS_DISCOVERY_PROTOCOL
+  value: "NULL"
+  key: KC_HTTP_ENABLED
+  value: "true"
