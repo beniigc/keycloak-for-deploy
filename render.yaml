@@ -6,6 +6,8 @@ services:
     dockerfilePath: ./Dockerfile
     autoDeploy: false
     envVars:
+      - key: PORT
+        value: 8080
       - key: KEYCLOAK_ADMIN
         value: admin
       - key: KEYCLOAK_ADMIN_PASSWORD
