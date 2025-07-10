@@ -8,4 +8,4 @@ RUN /opt/keycloak/bin/kc.sh create admin --user $KEYCLOAK_ADMIN --password $KEYC
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized", "--cache=local"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--optimized", "--cache=local"]
